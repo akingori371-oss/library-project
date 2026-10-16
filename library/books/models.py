@@ -18,6 +18,7 @@ class Book(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE , related_name='books')
     genre = models.CharField(max_length=20 , choices=GENRE_CHOICES,default='fiction')
     published_year = models.IntegerField()
+    rating = models.IntegerField()
     is_available = models.BooleanField(default=True)
     summary = models.TextField(blank=True)
 
