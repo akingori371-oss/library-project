@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 class Author(models.Model):
     name = models.CharField(max_length=100)
@@ -21,7 +22,7 @@ class Book(models.Model):
     rating = models.IntegerField(default=0)
     is_available = models.BooleanField(default=True)
     summary = models.TextField(blank=True)
-    date_added = models.DateField(auto_now_add=True)
+    date_added = models.DateField(default=timezone.now)
 
     def __str__(self):
         return self.title
